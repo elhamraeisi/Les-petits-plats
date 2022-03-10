@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="fr">
+
+<head>
+  <title>Les petits plats</title>
+  <link rel="icon" type="image/x-icon" href="assets/icons/favicon.ico">
+
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  <!-- FONT AWESOME-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <link href="css/style.css" rel="stylesheet" type="text/css" />
+
+</head>
+
+<body>
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+
+  <script type="module" src="./scripts/home.js"></script>
+  <script type="module" src="./assets/data/data.js"></script>
+  <div class="container-fluid">
+    <div class="row">
+      <nav class="col navbar navbar-expand">
+        <a class="navbar-navbar-brand mx-auto d-block mt-4" href="index.html">
+          <img src="assets/icons/logo_lespetitsplats.png" width="300" alt="Logo Home Page">
+        </a>
+      </nav>
+    </div>
+    <div class="row">
+      <div class="col input-group input-group-lg mx-5 my-4" id="autocomplete">
+        <input class="form-control input-placeholder" id="search-global-input" autocomplete="off" type="text"
+          placeholder="Rechercher une recette">
+        <div class="input-group-append">
+          <span class="input-group-text">
+            <i class="fa fa-search" aria-hidden="true"></i>
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="mx-5" id="selected-tags">
+    </div>
+    <div class="btn-group ml-md-5 mt-4">
+      <div class="dropdown-parent">
+        <button class="btn btn-primary py-3 mx-2 btn-lg" type="button" id="dropdown-ingredients-button"
+          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <div id="dropdown-ingredients">
+            Ingrédients
+            <i class="fa fa-chevron-down" aria-hidden="true"></i>
+          </div>
+          <form id="search-ingredients" class="form-inline form-group-lg bg-primary text-left hide-contents-button">
+            <div class="row">
+              <div class="col input-group input-group-lg" id="autocomplete">
+                <input id="search-ingredients-input"
+                  class="form-control bg-primary text-white border-0 w-75 p-4 input-lg" autocomplete="off" type="search"
+                  placeholder="Rechercher un ingrédient" aria-label="Search">
+                <span class="input-group-text bg-primary">
+                  <i class="fa fa-chevron-up text-white" aria-hidden="true"></i>
+                </span>
+              </div>
+            </div>
+            <div class="d-flex flex-wrap filter-container" id="listOfIngredients">
+            </div>
+          </form>
+        </button>
+      </div>
+      <div class="dropdown-parent">
+        <button class="btn btn-success py-3 mx-2 btn-lg" type="button" id="dropdown-appareils-button"
+          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <div id="dropdown-appareils">
+            Appareils
+            <i class="fa fa-chevron-down" aria-hidden="true"></i>
+          </div>
+          <form id="search-appareils" class="form-inline form-group-lg bg-success text-left hide-contents-button">
+            <div class="row">
+              <div class="col input-group input-group-lg" id="autocomplete">
+                <input id="search-Appliances-input"
+                  class="form-control bg-success text-white border-0 w-75 p-4 input-lg" autocomplete="off" type="search"
+                  placeholder="Rechercher un appareil" aria-label="Search">
+                <span class="input-group-text bg-success">
+                  <i class="fa fa-chevron-up text-white" aria-hidden="true"></i>
+                </span>
+              </div>
+            </div>
+            <div class="d-flex flex-wrap filter-container" id="listOfAppliances">
+            </div>
+          </form>
+        </button>
+      </div>
+      <div class="dropdown-parent">
+        <button class="btn btn-danger py-3 mx-2 btn-lg" type="button" id="dropdown-ustensiles-button"
+          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <div id="dropdown-ustensiles">
+            Ustensiles
+            <i class="fa fa-chevron-down" aria-hidden="true"></i>
+          </div>
+          <form id="search-ustensiles" class="form-inline form-group-lg bg-danger text-left hide-contents-button">
+            <div class="row">
+              <div class="col input-group input-group-lg" id="autocomplete">
+                <input id="search-Ustensils-input" class="form-control bg-danger text-white border-0 w-75 p-4 input-lg"
+                  type="search" autocomplete="off" placeholder="Rechercher un ustensile" aria-label="Search">
+                <span class="input-group-text bg-danger">
+                  <i class="fa fa-chevron-up text-white" aria-hidden="true"></i>
+                </span>
+              </div>
+            </div>
+            <div class="d-flex flex-wrap filter-container" id="listOfUstensils">
+            </div>
+          </form>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="card-deck px-5 mt-5">
+    <div class="d-flex flex-wrap" id="search-result">
+    </div>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,87 @@
+#search-input {
+  background-color: #e9ecef;
+  border: none;
+}
+
+
+.input-group-text {
+  border: none !important;
+}
+
+.input-placeholder::-webkit-input-placeholder {
+  color: black !important;
+}
+
+.fa-chevron-down {
+  margin-left: 1rem;
+  margin-top: 0.5rem;
+}
+
+.card-deck {
+  margin: 0 !important;
+  position: absolute;
+  top: 28rem;
+}
+
+.card-img-placeholder {
+  background-color: #c9bdbd;
+  min-height: 200px;
+}
+
+
+.form-control::-webkit-input-placeholder {
+  color: white;
+  opacity: 0.5;
+  font-size: large;
+}
+
+.hide-contents-button {
+  display: none;
+}
+
+.dropdown-item:hover {
+  color: black !important;
+}
+
+.dropdown-parent {
+  z-index: 1000;
+}
+
+
+.recipe-card {
+  background-color: #f8f9fb;
+  border-radius: 10px;
+  min-width: 30%;
+  max-width: 30%;
+  cursor: pointer;
+}
+
+.description {
+  overflow: scroll;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  height: 300px;
+
+}
+
+.filter-item {
+  width: 33%;
+  cursor: pointer;
+}
+
+.filter-container {
+  max-height: 300px;
+  overflow: scroll;
+  min-width: 500px;
+}
+
+.text-space {
+  white-space: initial;
+  text-align: center;
+}
+
+.no-result {
+  text-align: center;
+  font-size: 24px;
+  color: gray
+}
