@@ -13,7 +13,7 @@ function init() {
       displaySelectedFilters();
     }
     const userInput = e.target.value;
-    const searchResult = filterGlobal2(userInput);
+    const searchResult = filterGlobal(userInput);
     displayAllRecipes(searchResult)
   }
 
@@ -164,7 +164,7 @@ function displayAllRecipes(listOfRecipes) {
 
 
 /**
- * Recherche dans liste déroulante (RECHERCHE DANS LA LISTE DEROULANTE PAR UTILISATEUR )
+ * Recherche dans liste déroulante
  * @param {string} searchQuery la saisie de l'utilisateur
  * @param {Array} listOfData La liste des filtres
  * @returns 
@@ -175,55 +175,15 @@ function filterDroplistItems(searchQuery, listOfData) {
   )
 }
 
+
+
+
 /**
  * Recherche dans la barre de recherche principale
  * @param {string} searchQuery 
  * @returns la liste des recettes correspondantes à la saisie de l'utilisateur
  */
 function filterGlobal(searchQuery) {
-  var userInput = searchQuery.toLowerCase();
-
-  if (userInput.length > 2) {
-    return recipes.filter((recipe) => {
-      if (recipe.name.toLowerCase().includes(userInput)) {
-        return true
-      }
-
-      if (recipe.description.toLowerCase().includes(userInput)) {
-        return true
-      }
-
-      if (findIngredients(recipe.ingredients, userInput) !== undefined) {
-        return true
-      }
-
-      return false
-    })
-  } else {
-    return recipes;
-  }
-}
-
-
-/**
- * Recherche de la saisie de l'utilisateur dans les ingredients d'une recette 
- * @param {Array} ingredients 
- * @param {string} searchQuery 
- * @returns 
- */
-function findIngredients(ingredients, searchQuery) {
-  return ingredients.find((ingredientData) => {
-    return ingredientData.ingredient.toLowerCase().includes(searchQuery.toLowerCase())
-  });
-}
-
-
-/**
- * Recherche dans la barre de recherche principale
- * @param {string} searchQuery 
- * @returns la liste des recettes correspondantes à la saisie de l'utilisateur
- */
-function filterGlobal2(searchQuery) {
   var listOfResults = [];
   var userInput = searchQuery.toLowerCase();
   if (userInput.length > 2) {
@@ -236,7 +196,7 @@ function filterGlobal2(searchQuery) {
         listOfResults.push(recipe);
 
       } else {
-        if (findIngredients2(recipe, userInput) === true) {
+        if (findIngredients(recipe, userInput) === true) {
           listOfResults.push(recipe);
         }
       }
@@ -253,7 +213,7 @@ function filterGlobal2(searchQuery) {
  * @param {string} searchQuery 
  * @returns 
  */
-function findIngredients2(recipe, searchQuery) {
+function findIngredients(recipe, searchQuery) {
   var ingredientFound = false;
   for (let j = 0; j < recipe.ingredients.length; j++) {
     const ingredientData = recipe.ingredients[j]
