@@ -175,37 +175,35 @@ function filterDroplistItems(searchQuery, listOfData) {
   )
 }
 
-
-
-
 /**
  * Recherche dans la barre de recherche principale
  * @param {string} searchQuery 
  * @returns la liste des recettes correspondantes à la saisie de l'utilisateur
  */
 function filterGlobal(searchQuery) {
-  var listOfResults = [];
   var userInput = searchQuery.toLowerCase();
+
   if (userInput.length > 2) {
-
-    for (let i = 0; i < recipes.length; i++) {
-      const recipe = recipes[i]
+    return recipes.filter((recipe) => {
       if (recipe.name.toLowerCase().includes(userInput)) {
-        listOfResults.push(recipe);
-      } else if (recipe.description.toLowerCase().includes(userInput)) {
-        listOfResults.push(recipe);
-
-      } else {
-        if (findIngredients(recipe, userInput) === true) {
-          listOfResults.push(recipe);
-        }
+        return true
       }
-    }
-    return listOfResults;
+
+      if (recipe.description.toLowerCase().includes(userInput)) {
+        return true
+      }
+
+      if (findIngredients(recipe.ingredients, userInput) !== undefined) {
+        return true
+      }
+
+      return false
+    })
   } else {
     return recipes;
   }
 }
+
 
 /**
  * Recherche de la saisie de l'utilisateur dans les ingredients d'une recette 
@@ -213,17 +211,14 @@ function filterGlobal(searchQuery) {
  * @param {string} searchQuery 
  * @returns 
  */
-function findIngredients(recipe, searchQuery) {
-  var ingredientFound = false;
-  for (let j = 0; j < recipe.ingredients.length; j++) {
-    const ingredientData = recipe.ingredients[j]
-    if (ingredientData.ingredient.toLowerCase().includes(searchQuery)) {
-      ingredientFound = true
-      break;
-    }
-  }
-  return ingredientFound;
+function findIngredients(ingredients, searchQuery) {
+  return ingredients.find((ingredientData) => {
+    return ingredientData.ingredient.toLowerCase().includes(searchQuery.toLowerCase())
+  });
 }
+
+
+
 
 /**
  * La recherches par tag(ingredient,ustensiles et appareils)
