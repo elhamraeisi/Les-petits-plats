@@ -176,19 +176,6 @@ function filterDroplistItems(searchQuery, listOfData) {
 }
 
 /**
- * Recherche de la saisie de l'utilisateur dans les ingredients d'une recette 
- * @param {Array} ingredients 
- * @param {string} searchQuery 
- * @returns 
- */
-function findIngredients(ingredients, searchQuery) {
-  return ingredients.find((ingredientData) => {
-    return ingredientData.ingredient.toLowerCase().includes(searchQuery.toLowerCase())
-  });
-}
-
-
-/**
  * Recherche dans la barre de recherche principale
  * @param {string} searchQuery 
  * @returns la liste des recettes correspondantes à la saisie de l'utilisateur
@@ -217,6 +204,18 @@ function filterGlobal(searchQuery) {
   }
 }
 
+
+/**
+ * Recherche de la saisie de l'utilisateur dans les ingredients d'une recette 
+ * @param {Array} ingredients 
+ * @param {string} searchQuery 
+ * @returns 
+ */
+function findIngredients(ingredients, searchQuery) {
+  return ingredients.find((ingredientData) => {
+    return ingredientData.ingredient.toLowerCase().includes(searchQuery.toLowerCase())
+  });
+}
 
 /**
  * Recherche de la saisie de l'utilisateur dans les ingredients d'une recette 
