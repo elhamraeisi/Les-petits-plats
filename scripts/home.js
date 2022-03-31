@@ -53,7 +53,7 @@ function init() {
     dropdownUstensiles.style.display = "block"
   }
 
-  window.onclick = function (event) {
+  window.onclick = function () {
     searchUstensiles.style.display = "none"
     dropdownUstensiles.style.display = "block"
     searchAppareils.style.display = "none"
@@ -145,7 +145,7 @@ function displayOneRecipe(recipe) {
 
 
 /**
- * Afficher la liste de recette
+ * Afficher la liste de recette 
  * @param {Array} listOfRecipes une liste de recettes à afficher
  */
 function displayAllRecipes(listOfRecipes) {
@@ -164,7 +164,7 @@ function displayAllRecipes(listOfRecipes) {
 
 
 /**
- * Recherche dans liste déroulante
+ * Recherche dans liste déroulante (RECHERCHE DANS LA LISTE DEROULANTE PAR UTILISATEUR )
  * @param {string} searchQuery la saisie de l'utilisateur
  * @param {Array} listOfData La liste des filtres
  * @returns 
@@ -217,23 +217,6 @@ function findIngredients(ingredients, searchQuery) {
   });
 }
 
-/**
- * Recherche de la saisie de l'utilisateur dans les ingredients d'une recette 
- * @param {Array} ingredients 
- * @param {string} searchQuery 
- * @returns 
- */
-function findIngredients2(recipe, searchQuery) {
-  var ingredientFound = false;
-  for (let j = 0; j < recipe.ingredients.length; j++) {
-    const ingredientData = recipe.ingredients[j]
-    if (ingredientData.ingredient.toLowerCase().includes(searchQuery)) {
-      ingredientFound = true
-      break;
-    }
-  }
-  return ingredientFound;
-}
 
 /**
  * Recherche dans la barre de recherche principale
@@ -262,6 +245,24 @@ function filterGlobal2(searchQuery) {
   } else {
     return recipes;
   }
+}
+
+/**
+ * Recherche de la saisie de l'utilisateur dans les ingredients d'une recette 
+ * @param {Array} ingredients 
+ * @param {string} searchQuery 
+ * @returns 
+ */
+function findIngredients2(recipe, searchQuery) {
+  var ingredientFound = false;
+  for (let j = 0; j < recipe.ingredients.length; j++) {
+    const ingredientData = recipe.ingredients[j]
+    if (ingredientData.ingredient.toLowerCase().includes(searchQuery)) {
+      ingredientFound = true
+      break;
+    }
+  }
+  return ingredientFound;
 }
 
 /**
